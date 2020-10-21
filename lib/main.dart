@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 void main(){
-
   runApp(MyApp());
   
 }
@@ -27,51 +26,51 @@ class  HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
- int firnum;
- int secondnum;
- String texttodisplay = "";
+ int firstNumber;
+ int secondNumber;
+ String textToDisplay = "";
  String res;
- String operationtoperform;
+ String operationToPerform;
 
-  void btnclicked(String btntext){
-  if (btntext == "C"){
-    texttodisplay = "";
-    firnum = 0;
-    secondnum = 0;
+  void btnClicked(String btnText){
+  if (btnText == "C"){
+    textToDisplay= "";
+    firstNumber = 0;
+    secondNumber = 0;
     res = "";
-  } else if (btntext == "+" || btntext == "-" || btntext == "x" || btntext == "/"){
-    firnum = int.parse(texttodisplay);
+  } else if (btnText == "+" || btnText == "-" || btnText == "x" || btnText == "/"){
+    firstNumber = int.parse(textToDisplay);
     res =  "";
-    operationtoperform = btntext;
+    operationToPerform= btnText;
   }
-  else if(btntext == "=") {
-    secondnum = int.parse(texttodisplay);
-    if (operationtoperform == "+") {
-      res = (firnum + secondnum).toString();
+  else if(btnText == "=") {
+    secondNumber = int.parse(textToDisplay);
+    if (operationToPerform== "+") {
+      res = (firstNumber + secondNumber).toString();
     }
-    if (operationtoperform == "-") {
-      res = (firnum - secondnum).toString();
+    if (operationToPerform== "-") {
+      res = (firstNumber - secondNumber).toString();
     }
-    if (operationtoperform == "x") {
-      res = (firnum * secondnum).toString();
+    if (operationToPerform== "x") {
+      res = (firstNumber * secondNumber).toString();
     }
-    if (operationtoperform == "/") {
-      res = (firnum ~/ secondnum).toString();
+    if (operationToPerform== "/") {
+      res = (firstNumber ~/ secondNumber).toString();
     }
   } else {
-    res = int.parse(texttodisplay + btntext).toString();
+    res = int.parse(textToDisplay+ btnText).toString();
     }
 
   setState(() {
 
-    texttodisplay = res;
+    textToDisplay= res;
   });
   }
-  Widget custombutton(String btnval){
+  Widget customButton(String btnval){
     return Expanded(
       child: OutlineButton(
         padding: EdgeInsets.all(25.0),
-        onPressed: () => btnclicked(btnval),
+        onPressed: () => btnClicked(btnval),
         child: Text(
           "$btnval",
           style: TextStyle(
@@ -99,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.all(10.0),
           alignment: Alignment.bottomRight,
                   child: Text(
-                    "$texttodisplay",
+                    "$textToDisplay",
                     style: TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.w600,
@@ -109,36 +108,36 @@ class _HomePageState extends State<HomePage> {
             ),
             Row(
               children: <Widget>[
-                custombutton("9"),
-                custombutton("8"),
-                custombutton("7"),
-                custombutton("+"),
+                customButton("9"),
+                customButton("8"),
+                customButton("7"),
+                customButton("+"),
 
               ],
             ),
             Row(
               children: <Widget>[
-                custombutton("6"),
-                custombutton("5"),
-                custombutton("4"),
-                custombutton("-"),
+                customButton("6"),
+                customButton("5"),
+                customButton("4"),
+                customButton("-"),
 
               ],
             ),
             Row(
               children: <Widget>[
-                custombutton("3"),
-                custombutton("2"),
-                custombutton("1"),
-                custombutton("x"),
+                customButton("3"),
+                customButton("2"),
+                customButton("1"),
+                customButton("x"),
               ],
             ),
       Row(
               children: <Widget>[
-                custombutton("C"),
-                custombutton("0"),
-                custombutton("="),
-                custombutton("/"),
+                customButton("C"),
+                customButton("0"),
+                customButton("="),
+                customButton("/"),
               ],
       )
           ],
