@@ -1,3 +1,3 @@
-# Simple Calculator using Flutter
+# Simple Calculator app using Flutter
 
 
